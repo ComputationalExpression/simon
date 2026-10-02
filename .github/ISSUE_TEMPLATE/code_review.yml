@@ -1,0 +1,87 @@
+name: Code Review
+description: A code review conducted with a Technical Leader (TL) or the course instructor.
+title: "Code Review: Lab 5, Simon Memory Game"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this out with the programmer present. Leave a box unchecked when the work does
+        not meet it. An unchecked box is information, not a punishment.
+  - type: input
+    attributes:
+      label: Reviewer
+      description: The GitHub username of the TL or instructor conducting this review
+      placeholder: your-github-username
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Functional requirements
+      description: Check each of the following satisfied functional requirements
+      options:
+        - label: "Code solves the issue presented"
+        - label: "Code functions, even if not fully solving the issue presented"
+        - label: "Performance of the code is acceptable"
+  - type: checkboxes
+    attributes:
+      label: Code style and legibility
+      description: Check each of the following checkboxes that describe code legibility
+      options:
+        - label: The code contains comments
+        - label: Variable names are accurate and appropriate
+        - label: The code is easy to read
+        - label: The code is formatted correctly
+  - type: markdown
+    attributes:
+      value: |
+        Walk through the code with the author, with the program running on their board. **Ask one
+        question per concept below, in your own words, about their own code.** Reviews happen at a
+        table where other students can hear, so vary the question from student to student: the
+        concept stays the same, the question does not. Pick from these or make up your own.
+
+        **Picking at random (Stage One)**
+        - Why does `randint` end at `len(leds) - 1` here, when `range(len(leds))` would not need the `- 1`?
+        - Which line would crash if `randint` could pick `3`, and on which stage would you see it?
+        - After Simon picks `2`, `0`, `2`, what does `sequence` hold, and which physical lights are those?
+
+        **The button (Stage Three)**
+        - What does `button.value()` return right now, and what will it return while you hold it down?
+        - What does `PULL_UP` do for the pin when nobody is pressing the button?
+        - Hold the button down before your turn starts. Which light gets chosen, and which line explains why?
+
+        **The while loop (Stage Three)**
+        - Why is this a `while` loop rather than a `for` loop over `range(...)`?
+        - Let the light go past the last one. Which lines bring it back to the first, and what would happen without them?
+        - Which line ends one step, and what is in `answer` after it runs?
+
+        **Comparing two lists (Stage Four)**
+        - Simon showed `2`, `0`, `1` and you answered `2`, `1`, `1`. Say what `correct` holds after each trip of the score loop.
+        - Why does the score compare `answer[position]` with `sequence[position]` instead of checking whether a light appears anywhere in `sequence`?
+        - If `answer` were one item shorter than `sequence`, which line would stop the program, and with what error?
+
+        Check a concept when the answer shows the understanding described, whichever question you asked.
+  - type: checkboxes
+    attributes:
+      label: Code walkthrough
+      description: One box per concept. Check it when the author's answer to your question showed the understanding described.
+      options:
+        - label: "Picking at random: the author can explain why randint ends at len(leds) - 1 and what sequence holds as positions"
+        - label: "The button: the author can say what button.value() returns before and during a press, and why"
+        - label: "The while loop: the author can explain what keeps the loop going, what ends a step, and how the light goes back to the first"
+        - label: "Comparing two lists: the author can trace correct through the score loop for a given sequence and answer"
+        - label: "The author described their process well, communicating confidence and understanding of their own code"
+  - type: textarea
+    attributes:
+      label: The Good, The Bad, The Ugly
+      description: Write a short note with at least 3 aspects done well, and 3 aspects on which the code could be improved
+      value: |
+        #### Positives
+        1.
+        2.
+        3.
+        #### Improvements
+        1.
+        2.
+        3.
+    validations:
+      required: true

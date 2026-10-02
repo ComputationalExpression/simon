@@ -1,0 +1,25 @@
+[project]
+name = "lab-05-simon"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = [
+    "gatorgrade",
+    "pytest",
+    "pytest-timeout",
+    "mockro",
+    "mpremote",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
+testpaths = [
+    "tests"
+]
+# A while loop that never ends would otherwise hang the check. Five seconds is
+# far more than any passing run needs, since time.sleep is patched out.
+timeout = 5
+filterwarnings = [
+    "ignore::pytest.PytestAssertRewriteWarning",
+]

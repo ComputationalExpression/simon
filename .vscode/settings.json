@@ -1,0 +1,34 @@
+{
+  "github.copilot.enable": false,
+  "github.copilot.inlineSuggest.enable": false,
+  "security.workspace.trust.banner": "never",
+  "security.workspace.trust.untrustedFiles": "open",
+  "chat.agent.enabled": false,
+  "chat.disableAIFeatures": true,
+  "chat.commandCenter.enabled": false,
+  "files.exclude": {
+    "**/.*": true,
+    ".stubs": true,
+    "gatorgrade.yml": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80
+  },
+  "[python]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80
+  },
+  "editor.tabSize": 4,
+  "terminal.integrated.commandsToSkipShell": ["aichat.newchataction"],
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.diagnosticSeverityOverrides": {
+      "reportMissingModuleSource": "none"
+  },
+  "python.terminal.activateEnvironment": false,
+  "python.analysis.extraPaths": [
+      ".stubs",
+      "src"
+  ]
+}

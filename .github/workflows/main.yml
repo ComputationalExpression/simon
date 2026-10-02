@@ -1,0 +1,31 @@
+name: Grade
+
+on:
+  push:
+    branches: [main]
+  fork:
+    branches: [main]
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6.0.1
+      with:
+        fetch-depth: '0'
+    - name: Setup Python
+      if: always()
+      uses: actions/setup-python@v6.1.0
+      with:
+        python-version: 3.12
+    - name: Set up grading environment
+      run: |
+        sudo apt-get update
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+    - name: Grade repository
+      run: |
+        uv run gatorgrade --config gatorgrade.yml
+      if: always()
+      env:
+        PIPENV_VENV_IN_PROJECT: 1
+        PIPENV_IGNORE_VIRTUALENVS: 1
