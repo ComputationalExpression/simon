@@ -50,14 +50,15 @@ Specifically, by the end of this lab you should be able to:
 You need your Lab 4 circuit (three LEDs on GP15, GP14 and GP13), one push button, and two
 jumper wires. Unplug the USB cable before you touch the wiring.
 
-**Leave the three lights exactly as they are, and add the button**, following the
+**Move the GP15 light from row 24 to row 30, leave the other two lights as they are, and add
+the button**, following the
 [Week 8 Session 3 slides](https://computationalexpression.com/slides/week-08-session-3/):
 
 ![Three LEDs on GP15, GP14 and GP13, and a push button on GP16, on a half breadboard](images/simon-circuit.svg)
 
-The button straddles the channel with its legs in rows 21 and 23. Pressing it joins those two
-rows, which connects GP16 to ground. If the program reads the button as pressed when nothing
-touches it, turn the button a quarter turn.
+The button straddles the channel with its legs in rows 22 and 24, and its body covers rows 21
+to 25. Pressing it joins rows 22 and 24, which connects GP16 to ground. If the program reads
+the button as pressed when nothing touches it, turn the button a quarter turn.
 
 If the button or a light will not work, ask an instructor or TL. Do not troubleshoot hardware
 alone the night before it is due.
