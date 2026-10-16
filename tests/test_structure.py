@@ -32,7 +32,9 @@ def calls_to(name):
 
 
 def test_randint_is_called():
-    assert calls_to("randint"), "found no call to random.randint(...): Simon picks each light at random"
+    assert calls_to("randint") or calls_to("randrange"), (
+        "found no call to random.randint(...) or random.randrange(...): Simon picks each light at random"
+    )
 
 
 def test_append_is_called():
@@ -59,7 +61,6 @@ def test_a_for_loop_over_a_list():
 def test_two_lists_compared_by_position():
     found = [
         compare for compare in nodes(ast.Compare)
-        if isinstance(compare.left, ast.Subscript)
-        and any(isinstance(other, ast.Subscript) for other in compare.comparators)
+        if any(isinstance(side, ast.Subscript) for side in [compare.left] + compare.comparators)
     ]
-    assert found, "found no comparison of two indexed lists, like answer[position] == sequence[position]: the score checks one position at a time"
+    assert found, "found no comparison of one item of a list, like answer[position] == sequence[position]: the score checks one position at a time"

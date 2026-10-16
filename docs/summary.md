@@ -16,6 +16,7 @@ TODO
 TODO
 
 > Simon's sequence is `[2, 0, 1]` and your answer is `[2, 1, 1]`. Trace Stage Four: what does
-> `correct` hold after each trip of the loop, and what do the last two lines of the log say?
+> `correct` hold after each trip/iteration of the loop, and what do the last two lines of the
+> log say?
 
 TODO

@@ -1,16 +1,16 @@
 # Fifteen checks: six run your program, seven read src/main.py, two read docs/summary.md.
 # The six program checks read only the Simon log at the end of a run, or look at which
-# lights came on, never the story lines. Log values forgive extra spaces, letter case, and a
-# missing colon. In these checks Simon's sequence is chosen for you rather than at random, and
-# a pretend player presses the button when the light they want comes on. Each program check
-# stops after five seconds.
+# lights came on, never the story lines. Log values forgive extra spaces, letter case, a
+# missing colon, and words after the value. In these checks Simon's sequence is chosen for
+# you rather than at random, and a pretend player holds the button down when the light they
+# want comes on. Each program check stops after five seconds.
 
 - description: "[SIMON] The Simon log names you, and Lights logs how many lights are in leds: TODO 1 saves the name, and TODO 8 prints SIMON LOG with it"
   check: ExecuteCommand
   options:
     command: uv run pytest tests/test_simon.py::test_program_runs_and_log_names_you
 
-- description: "[SEQUENCE] Simon picks each light with random.randint(0, len(leds) - 1), once per light, and logs the length: positions start at 0, and randint includes both ends"
+- description: "[SEQUENCE] Simon picks each light with random.randint(0, len(leds) - 1) or random.randrange(len(leds)), once per light, and logs the length: positions start at 0, and randint includes both ends"
   check: ExecuteCommand
   options:
     command: uv run pytest tests/test_simon.py::test_randint_picks_a_position
@@ -35,7 +35,7 @@
   options:
     command: uv run pytest tests/test_simon.py::test_the_light_goes_round_again
 
-- description: "[CODE] random.randint(...) is called: Simon picks each light at random"
+- description: "[CODE] random.randint(...) or random.randrange(...) is called: Simon picks each light at random"
   check: ExecuteCommand
   options:
     command: uv run pytest tests/test_structure.py::test_randint_is_called
@@ -55,7 +55,7 @@
   options:
     command: uv run pytest tests/test_structure.py::test_a_for_loop_over_a_list
 
-- description: "[CODE] Two lists are compared by position, like answer\\[position] == sequence\\[position]"
+- description: "[CODE] The score compares one position at a time, like answer\\[position] == sequence\\[position]"
   check: ExecuteCommand
   options:
     command: uv run pytest tests/test_structure.py::test_two_lists_compared_by_position

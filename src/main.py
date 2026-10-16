@@ -37,7 +37,7 @@ def main():
     # variable called `length`, and convert it to an int
 
     # TODO 3: set a variable called `sequence` to an empty list, then loop
-    # over range(length). On every trip, append
+    # over range(length). On every trip/iteration, append
     # random.randint(0, len(leds) - 1) to `sequence`
 
     # ===== Stage Two: Watch =====
@@ -45,14 +45,14 @@ def main():
     print()
 
     # TODO 4: print a message that uses `name`, then time.sleep(1). Play the
-    # sequence with a for loop over `sequence`: on every trip,
+    # sequence with a for loop over `sequence`: on every trip/iteration,
     # leds[position].on(), time.sleep(0.6), leds[position].off(),
     # time.sleep(0.3)
 
     # ===== Stage Three: Your Turn =====
 
     # TODO 5: set a variable called `answer` to an empty list, then loop over
-    # range(length). Each trip answers one step:
+    # range(length). Each trip/iteration answers one step:
     #   - set `lit` to 0, then leds[lit].on() and time.sleep(0.5)
     #   - while button.value() is 1: leds[lit].off(), add 1 to `lit`, set
     #     `lit` back to 0 if it equals len(leds), then leds[lit].on() and
