@@ -6,10 +6,15 @@
 |Due |Friday, October 23, 2:30pm |
 |Progress |[![Grade](../../actions/workflows/main.yml/badge.svg?branch=main)](../../actions/workflows/main.yml) |
 
-Simon lights a sequence on your three LEDs, and you play it back with one button. On your
-turn the lights take turns, one at a time, and you hold the button down while the light you
-want is on. Simon's sequence and your answer are two lists, and the score compares them
-position by position.
+Simon is a memory game. The original, a 1978 electronic toy, has four colored buttons. It
+lights them in a sequence, and the player repeats that sequence by pressing the buttons in the
+same order.
+
+In this lab, your Pico plays Simon with your three LEDs. It picks a random sequence of lights
+and shows them to you one at a time. Then it is your turn to play the sequence back with one
+button: the lights take turns coming on, one at a time, and you hold the button down while the
+light you want is on. Simon's sequence and your answer are two lists, and the score compares
+them position by position.
 
 ## Contents
 
@@ -52,7 +57,12 @@ jumper wires. Unplug the USB cable before you touch the wiring.
 
 **Move the GP15 light from row 24 to row 30, leave the other two lights as they are, and add
 the button**, following the
-[Week 8 Session 3 slides](https://computationalexpression.com/slides/week-08-session-3/):
+[Week 8 Session 3 slides](https://computationalexpression.com/slides/week-08-session-3/). The
+GP numbers in the code and the circuit are the labels on the Pico 2 W pinout:
+
+![The Pico 2 W pinout, with each pin's GP number](images/pico-2-pinout.svg)
+
+The finished circuit:
 
 ![Three LEDs on GP15, GP14 and GP13, and a push button on GP16, on a half breadboard](images/simon-circuit.svg)
 
